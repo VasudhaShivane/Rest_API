@@ -1,0 +1,5 @@
+module.exports = {
+    "env": {
+        "MONGO_ATLAS_PW": "root"
+    }
+};
