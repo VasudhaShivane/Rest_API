@@ -1,91 +1,125 @@
-📌 REST API Project
-🚀 Overview
+# 📌 REST API Project
 
-This is a RESTful API built using Node.js, Express, and MongoDB.
-It supports user authentication and CRUD operations for Products and Orders.
+## 🚀 Overview
 
-🛠 Tech Stack
+This project is a **RESTful API** built using **Node.js, Express.js, and
+MongoDB**.\
+It provides secure authentication and full CRUD functionality for
+**Products** and **Orders**.
 
-Node.js
+The API follows REST principles and uses JWT-based authentication to
+protect routes.
 
-Express.js
+------------------------------------------------------------------------
 
-MongoDB
+## 🛠 Tech Stack
 
-Mongoose
+-   Node.js
+-   Express.js
+-   MongoDB
+-   Mongoose
+-   JWT (JSON Web Token)
+-   bcrypt (Password Hashing)
+-   Nodemon
 
-JWT Authentication
+------------------------------------------------------------------------
 
-bcrypt (Password Hashing)
+## 📂 Project Structure
 
-Nodemon
+server.js\
+app.js\
+api/\
+├── routes/\
+├── controllers/\
+├── models/\
+└── middleware/
 
-📂 Project Structure
-server.js
-app.js
-api/
- ├── routes/
- ├── controllers/
- ├── models/
- └── middleware/
-🔐 Features
+------------------------------------------------------------------------
 
-User Signup & Login
+## 🔐 Features
 
-JWT Authentication
+-   User Signup & Login\
+-   JWT Authentication\
+-   Password Hashing with bcrypt\
+-   Create / Read / Delete Products\
+-   Create / Read / Delete Orders\
+-   Protected Routes using Middleware\
+-   MongoDB Relationships
 
-Password Hashing
+------------------------------------------------------------------------
 
-Create / Read / Delete Products
+## 📊 Database Relationships
 
-Create / Read / Delete Orders
+-   One User → Many Orders\
+-   One Product → Many Orders\
+-   Orders reference Product using ObjectId
 
-Protected Routes using Middleware
+------------------------------------------------------------------------
 
-📊 Database Relationships
+## ▶️ Installation
 
-One User → Many Orders
-
-One Product → Many Orders
-
-Orders reference Product using ObjectId
-
-▶️ Installation
+``` bash
 git clone <repo-url>
 cd project-folder
 npm install
-▶️ Run Project
+```
+
+------------------------------------------------------------------------
+
+## ▶️ Run the Project
+
+Start the server:
+
+``` bash
 npm start
+```
 
 For development:
 
+``` bash
 nodemon server.js
-🔑 Authentication
+```
 
-Protected routes require:
+------------------------------------------------------------------------
 
-Authorization: Bearer <JWT_TOKEN>
-📦 API Endpoints
-User
+## 🔑 Authentication
 
-POST /user/signup
+Protected routes require a valid JWT token.
 
+Add the token in request headers:
+
+Authorization: Bearer `<JWT_TOKEN>`{=html}
+
+------------------------------------------------------------------------
+
+## 📦 API Endpoints
+
+### 👤 User
+
+POST /user/signup\
 POST /user/login
 
-Products
+### 📦 Products
 
-GET /products
-
-POST /products
-
-GET /products/:id
-
+GET /products\
+POST /products\
+GET /products/:id\
 DELETE /products/:id
 
-Orders
+### 🛒 Orders
 
-GET /orders
-
-POST /orders
-
+GET /orders\
+POST /orders\
 DELETE /orders/:id
+
+------------------------------------------------------------------------
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the root directory:
+
+PORT=3000\
+MONGO_URI=your_mongodb_connection_string\
+JWT_KEY=your_secret_key
+
+
