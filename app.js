@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-
+const userRoutes = require('./api/routes/user');
 const productRoutes = require('./api/routes/products');
 const orderRoutes = require('./api/routes/order');
 
@@ -43,6 +43,7 @@ app.use((req, res , next) => {
 
 app.use('/products', productRoutes);
 app.use('/orders', orderRoutes);
+app.use('/user', userRoutes);
 
 // 404
 app.use((req, res , next) => {
