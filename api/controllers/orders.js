@@ -40,13 +40,15 @@ exports.orders_create_order = (req, res, next) => {
         });
       }
       const order = new Order({
-        _id: mongoose.Types.ObjectId(),
+        _id: new mongoose.Types.ObjectId(),
         quantity: req.body.quantity,
         product: req.body.productId
       });
       return order.save();
     })
     .then(result => {
+
+        if (!result) return;
       console.log(result);
       res.status(201).json({
         message: "Order stored",
